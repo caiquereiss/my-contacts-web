@@ -32,11 +32,15 @@ export default function Home() {
     handleToggleOrderBy,
     handleDeleteContact,
   } = useHome();
+
+  const hasContact = contacts.length > 0;
+  const isListEmpty = !hasError && (!isLoading && !hasContact);
+  const isSearchEmpty = !hasError && (hasContact && filteredContacts.length < 1);
   return (
     <Container>
       <Loader isLoading={isLoading} />
 
-      {(contacts.length > 0 && !hasError) && (
+      {(hasContact && !hasError) && (
         <InputSearch
           value={searchTerm}
           onChange={handleChangeSearchTerm}
@@ -49,17 +53,12 @@ export default function Home() {
       />
 
       {hasError && (<ErrorStatus onTryAgain={handleTryAgain} />)}
-      {!hasError && (
-        <>
-          {(contacts.length < 1 && !isLoading) && (
-            <EmptyList />
-          )}
+      {(isListEmpty) && (<EmptyList />)}
 
-          {
-            (contacts.length > 0 && filteredContacts.length < 1) && (
-              <SearchNotFound searchTerm={searchTerm} />
-            )
-          }
+      {(isSearchEmpty) && <SearchNotFound searchTerm={searchTerm} />}
+
+      {hasContact && (
+        <>
           <ContactsList
             filteredContacts={filteredContacts}
             orderBy={orderBy}
