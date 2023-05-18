@@ -1,5 +1,16 @@
-import styled, { css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
+const messageIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+`;
 const containerVariants = {
   default: css`
   background: ${({ theme }) => theme.colors.primary.main};
@@ -20,6 +31,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  animation: ${messageIn} 0.3s;
 
 
   ${({ type }) => containerVariants[type] || containerVariants.default}
