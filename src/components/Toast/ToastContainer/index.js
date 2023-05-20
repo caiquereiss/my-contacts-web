@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Container } from './styles';
-import { ToastMessage } from '../ToastMessage';
+import ToastMessage from '../ToastMessage';
 import { toastEventManager } from '../../../utils/toast';
 import useAnimatedList from '../../../hooks/useAnimatedList';
 
