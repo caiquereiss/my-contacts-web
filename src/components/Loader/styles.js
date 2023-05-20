@@ -21,5 +21,5 @@ export const Overlay = styled.div`
   align-items: center;
   justify-content: center;
   animation: ${fadeIn} 0.3s;
-  animation: ${({ isLeaving }) => isLeaving && css`animation: ${fadeOut} 0.2s;`};
+  animation: ${({ isLeaving }) => isLeaving && css`animation: ${fadeOut} 0.2s forwards;`};
 `;
