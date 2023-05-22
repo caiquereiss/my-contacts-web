@@ -51,7 +51,6 @@ export default function Home() {
         qtyOfContacts={contacts.length}
         qtyOfFilteredContacts={filteredContacts.length}
       />
-
       {hasError && (<ErrorStatus onTryAgain={handleTryAgain} />)}
       {(isListEmpty) && (<EmptyList />)}
 

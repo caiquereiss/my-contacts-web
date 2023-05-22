@@ -10,9 +10,7 @@ export default function EmptyList() {
       <p>
         Você ainda não tem nenhum contato cadastrado!
         Clique no botão
-        {' '}
         <strong>”Novo contato” </strong>
-        {' '}
         à cima
         para cadastrar o seu primeiro!
       </p>
